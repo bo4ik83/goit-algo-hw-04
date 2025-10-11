@@ -11,6 +11,8 @@ def print_directory_structure(path: Path, indent: str = ""):
         for item in path.iterdir():
             if item.is_dir():
                 print(f"{indent}{Fore.BLUE}{item.name}/") # Директорії – сині
+                # Рекурсивний виклик для вкладених директорій
+                print_directory_structure(item, indent + "    ")
             else:
                 print(f"{indent}{Fore.GREEN}{item.name}") # Файли – зелені
     except PermissionError:
