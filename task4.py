@@ -7,7 +7,7 @@ def parse_input(user_input):
     return cmd.lower(), args
 
 def add_contact(args, contacts):
-    """Парсить введений рядок на команду та аргументи."""
+    """Додає контакт: add [name] [phone]"""
     if len(args) < 2:
         return "Неправильний формат. Використання: add [ім'я] [номер]"
     name, phone = args
@@ -51,7 +51,7 @@ def main():
 
     while True:
         user_input = input("Enter a command: ")
-        command, *args = parse_input(user_input)
+        command, args = parse_input(user_input)
 
         if command in ["close", "exit"]:
             print("Good bye!")
